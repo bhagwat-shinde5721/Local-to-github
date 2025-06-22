@@ -11,6 +11,6 @@ for i in range(1, rows + 1):
 
     # Print descending numbers
     for j in range(i - 1, 0, -1):
-        print(j, end="")
+        print(j, end="Bhagwat Shinde")
 
     print()  # Move to next line
