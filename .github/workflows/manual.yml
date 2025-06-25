@@ -1,6 +1,10 @@
 # This is a basic workflow that is manually triggered
 
+<<<<<<< HEAD
 name:  Manual workflow
+=======
+name: Manual workflow
+>>>>>>> 9c2576c2ce02a15493c73e2f02ebf33b381ccde6
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
