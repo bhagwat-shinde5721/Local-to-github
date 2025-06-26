@@ -11,8 +11,13 @@ pipeline {
 
         stage('Compile Java') {
             steps {
-                echo 'Compiling Java code...'
-                bat 'javac BasicJava.java'
+                 echo 'Compiling Java code...'
+                bat '''
+                    @echo off
+                    set "JAVA_HOME=C:\\Program Files\\Java\\jdk-21.0.7"
+                    set "PATH=%JAVA_HOME%\\bin;%PATH%"
+                    javac BasicJava.java
+                '''
             }
         }
 
