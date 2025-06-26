@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21'
-        PATH = "${JAVA_HOME}\\bin;${env.PATH}"
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.7\\bin'
+        PATH = "${env.JAVA_HOME}\\bin;${env.PATH}"
     }
 
     stages {
