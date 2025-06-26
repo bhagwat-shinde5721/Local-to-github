@@ -1,28 +1,16 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
+    environment {
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21'
+        PATH = "${JAVA_HOME}\\bin;${env.PATH}"
     }
 
     stages {
-        stage('Checkout') {
+        stage('Run') {
             steps {
-                // Clone your code
-                checkout scm
+                bat 'java -version'
             }
         }
-
-        stage('Build') {
-            steps {
-                 echo 'Valiating maven installation...'
-                bat '''
-                   mvn --version
-                    
-                '''
-            }
-        }
-
-        
     }
 }
