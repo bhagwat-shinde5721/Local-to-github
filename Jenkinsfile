@@ -12,14 +12,14 @@ pipeline {
         stage('Compile Java') {
             steps {
                 echo 'Compiling Java code...'
-                sh 'javac BasicJava.java'
+                bat 'javac BasicJava.java'
             }
         }
 
         stage('Run Java') {
             steps {
                 echo 'Running Java program...'
-                sh 'java BasicJava'
+                bat 'java BasicJava'
             }
         }
     }
