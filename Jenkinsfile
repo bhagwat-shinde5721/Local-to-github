@@ -15,7 +15,7 @@ pipeline {
     }
     
     stages {
-        stage('Run Java Code') {
+        stage('Run BasicJava Code') {
             steps {
                 bat '''
                 echo "Compliling java code"
@@ -24,6 +24,33 @@ pipeline {
                 echo "Executing java code" 
                  java BasicJava
 
+                '''
+            }
+        }
+
+        stage("Run OopsConcepts Code")
+        {
+            steps{
+                bat '''
+                echo "Compiling code"
+                javac OopsConcept.java
+
+                echo "Running java code"
+                java OopsConcept.java
+                '''
+            }
+        }
+        
+        stage("Run Constructor Concepts")
+        {
+            steps
+            {
+                bat '''
+                echo "Compiling java code"
+                javac Constructor.java
+                
+                echo "Running java code"
+                java Constructor.java
                 '''
             }
         }
