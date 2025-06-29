@@ -1,6 +1,9 @@
 pipeline {
     agent any
     
+    triggers{
+        githubPush()
+    }
     tools
     {
         jdk 'JDK 21'
@@ -21,6 +24,15 @@ pipeline {
                 echo "Executing java code" 
                  java BasicJava
 
+                '''
+            }
+        }
+        stage('Post run')
+        {
+            steps
+            {
+                bat '''
+                echo "Execution is successful"
                 '''
             }
         }
