@@ -1,15 +1,27 @@
 pipeline {
     agent any
+    
+    tools
+    {
+        jdk 'JDK 21'
+    }
 
     environment {
         JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.7'
         PATH = "${env.JAVA_HOME}\\bin;${env.PATH}"
     }
-
+    
     stages {
-        stage('Run') {
+        stage('Run Java Code') {
             steps {
-                bat 'java -version'
+                bat '''
+                echo "Compliling java code"
+                 javac BasicJava.java
+
+                echo "Executing java code" 
+                 java BasicJava
+
+                '''
             }
         }
     }
