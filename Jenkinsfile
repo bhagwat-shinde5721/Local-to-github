@@ -1,67 +1,38 @@
-pipeline {
+pipline{
     agent any
-    
-    triggers{
-        cron('H/5 * * * *')
-    }
+
     tools
     {
-        jdk 'JDK 21'
+        maven  'Maven'
     }
-
-    environment {
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.7'
-        PATH = "${env.JAVA_HOME}\\bin;${env.PATH}"
+    environment
+    {
+        bat '''
+        echo "In environment change directory to maven project"
+        cd Maven Project
+        '''
     }
     
-    stages {
-        stage('Run BasicJava Code') {
-            steps {
-                bat '''
-                echo "Compliling java code"
-                 javac BasicJava.java
-
-                echo "Executing java code" 
-                 java BasicJava
-
-                '''
-            }
-        }
-
-        stage("Run OopsConcepts Code")
-        {
-            steps{
-                bat '''
-                echo "Compiling code"
-                javac OopsConcept.java
-
-                echo "Running java code"
-                java OopsConcept.java
-                '''
-            }
-        }
-        
-        stage("Run Constructor Concepts")
+    stages{
+        stage("Test")
         {
             steps
             {
                 bat '''
-                echo "Compiling java code"
-                javac Constructor.java
-                
-                echo "Running java code"
-                java Constructor.java
+                echo "TestNG runner will start running"
+                mvn clean test
                 '''
             }
         }
-        stage('Post run')
+        stage("Post Run")
         {
             steps
             {
-                bat '''
-                echo "Execution is successful"
-                '''
+              bat '''
+              echo "Execution is successful"
+              '''
             }
+
         }
     }
 }
