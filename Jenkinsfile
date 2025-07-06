@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     triggers{
-        H/5 * * * *
+        cron('H/5 * * * *')
     }
     tools
     {
