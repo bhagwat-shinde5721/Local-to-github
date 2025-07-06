@@ -1,38 +1,27 @@
-pipline{
+pipeline {
     agent any
 
-    tools
-    {
-        maven  'Maven'
+    tools {
+        maven 'Maven'
     }
-    environment
-    {
-        bat '''
-        echo "In environment change directory to maven project"
-        cd Maven Project
-        '''
-    }
-    
-    stages{
-        stage("Test")
-        {
-            steps
-            {
+
+    stages {
+        stage("Test") {
+            steps {
                 bat '''
                 echo "TestNG runner will start running"
+                cd "Maven Project"
                 mvn clean test
                 '''
             }
         }
-        stage("Post Run")
-        {
-            steps
-            {
-              bat '''
-              echo "Execution is successful"
-              '''
-            }
 
+        stage("Post Run") {
+            steps {
+                bat '''
+                echo "Execution is successful"
+                '''
+            }
         }
     }
 }
