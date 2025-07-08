@@ -1,6 +1,6 @@
 
 import java.lang.*;
-import java.util.*;
+import java.util.Scanner;
 public class BasicJava {
    private static  float k=0;
    private static void show(){
@@ -74,6 +74,7 @@ public class BasicJava {
     public String takeInput()
     {
       Scanner sc = new Scanner(System.in);
+      System.out.println("b");
       System.out.println("Tell me your name??");
       String s = sc.nextLine();
       System.out.println(s);
